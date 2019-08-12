@@ -8,8 +8,8 @@ window.addEventListener('keydown', e => {
 });
 
 const playAudio = audio => {
-  // audio.currentTime = 0;
-  // audio.play();
+  audio.currentTime = 0;
+  audio.play();
 };
 
 const showPress = el => {
