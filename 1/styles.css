@@ -1,7 +1,15 @@
+body {
+  background: url(./images/drums.jpeg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
 .keys {
   display: flex;
   min-width: 100vw;
-  min-height: 50vh;
+  min-height: 100vh;
   align-items: center;
   justify-content: center;
 }
@@ -9,16 +17,26 @@
 .key {
   display: inline-block;
   text-align: center;
+  min-width: 55px;
   margin: 1rem;
-  border: 3px solid black;
+  border: 3px solid rgb(0, 0, 0);
+  border-radius: .5rem;
   padding: 10px;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.key kbd {
+  color: white;
+  font-size: 40px;
 }
 
 .playing {
-  transform: scale(1.1);
-  border-color: orange;
+  transform: scale(1.2);
+  border-color: rgb(255, 165, 0);
+  background-color: rgba(255, 165, 0, 0.25);
 }
 
 .sound {
   display: block;
+  color: white;
 }
