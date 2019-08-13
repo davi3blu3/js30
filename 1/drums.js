@@ -2,20 +2,18 @@ window.addEventListener('keydown', e => {
   const keyEl = document.querySelector(`.key[data-key="${e.keyCode}"]`);
   const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
   if (audio && keyEl) {
-    showPress(keyEl);
-    playAudio(audio);
+    audio.currentTime = 0; // rewind if mid-play
+    audio.play();
+    el.classList.add('playing');
   }
 });
 
-const playAudio = audio => {
-  audio.currentTime = 0;
-  audio.play();
+const removeTransition = e => {
+  if (e.propertyName !== 'transform') return; // skip if it's not a transform
+  e.srcElement.classList.remove('playing');
 };
 
-const showPress = el => {
-  if (!el) return;
-  el.classList.add('playing');
-  setTimeout(() => {
-    el.classList.remove('playing');
-  }, 200);
-};
+const keys = document.querySelectorAll('.key');
+keys.forEach(key => {
+  key.addEventListener('transitionend', removeTransition);
+});
